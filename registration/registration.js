@@ -17,5 +17,32 @@ function showpassword()
         $("#ghost2").removeClass("bx bx-ghost");
         $("#ghost2").addClass("bx bxs-ghost");
     }
+}
 
+function checkpasswords() {
+    if ($('#passwordfield').val() == $('#passwordfield2').val() && $('#passwordfield').val() != "" ) {
+        $('.passworddiv').css('border-color', 'green');
+        if($('#emailfield').val() != '')
+        {
+
+            $('#submit').prop('disabled', false);
+        }
+        else
+        {
+            $('#submit').prop('disabled', true);
+
+        }
+    } else {
+        $('.passworddiv').css('border-color', 'red');
+        $('#submit').prop('disabled', true);
+    }
+
+    if($('#emailfield').val() != '')
+    {
+        $('.email').css('border-color','green')
+    }
+    else
+    {
+        $('.email').css('border-color','red')
+    }
 }

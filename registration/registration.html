@@ -13,22 +13,22 @@
 </head>
 <body>
     <div class="login">
-        <form action="registration.php" method="post">
+        <form>
             <h1>Registration</h1 class="title">
             <div class="email">
-                <input type="email" name="email" placeholder="E-Mail" />
+                <input type="email" name="email" id='emailfield' onkeyup="checkpasswords()" placeholder="E-Mail" />
                 <i class='bx bx-envelope'></i>
             </div>
-            <div class="password">
-                <input type="password" placeholder="Password" id="passwordfield"/>
+            <div class="passworddiv" id="password">
+                <input type="password" placeholder="Password" onkeyup="checkpasswords()" id="passwordfield"/>
                 <i class='bx bxs-ghost' id="ghost" onclick="showpassword()"></i>
             </div>
-            <div class="password2">
-                <input type="password" placeholder="Repeat Password" id="passwordfield2"/>
+            <div class="passworddiv" id="password2">
+                <input type="password" placeholder="Repeat Password" onkeyup="checkpasswords()" id="passwordfield2"/>
                 <i class='bx bxs-ghost' id="ghost2" onclick="showpassword()"></i>
             </div>
             <div class="button">
-                <input type="submit">
+                <input type="submit" id="submit">
             </div>
             <div class="href">
                 <a href="http://localhost/PHP">I already have an account!</a>

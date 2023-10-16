@@ -85,7 +85,7 @@ i
     display: grid;
 }
 
-.password
+#password
 {
     grid-column: 1;
     grid-row: 3;
@@ -95,7 +95,7 @@ i
     display: grid;
 }
 
-.password2
+#password2
 {
     display: grid;
     place-items: center;
