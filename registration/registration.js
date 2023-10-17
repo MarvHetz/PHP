@@ -19,6 +19,11 @@ function showpassword()
     }
 }
 
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
 function checkpasswords() {
     if ($('#passwordfield').val() == $('#passwordfield2').val() && $('#passwordfield').val() != "" ) {
         $('.passworddiv').css('border-color', 'green');
@@ -37,7 +42,7 @@ function checkpasswords() {
         $('#submit').prop('disabled', true);
     }
 
-    if($('#emailfield').val() != '')
+    if(validateEmail($('#emailfield').val()))
     {
         $('.email').css('border-color','green')
     }

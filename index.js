@@ -12,25 +12,40 @@ function showpasswod()
     }
 }
 
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
 function inputcheck()
 {
-
-    if($('#emailfield').val() != '' && $('#passwordfield').val() != '')
+    if(validateEmail($('#emailfield').val()) && $('#passwordfield').val() != '')
     {
         $('.email').css('border-color','green');
         $('.password').css('border-color','green');
         $('#submit').prop('disabled', false);
     }
-    else if($('#emailfield').val() != '' && $('#passwordfield').val() == '')
+    else if(validateEmail($('#emailfield').val()) && $('#passwordfield').val() == '')
     {
         $('.email').css('border-color','green');
         $('.password').css('border-color','red');
         $('#submit').prop('disabled', true);
     }
-    else
+    else if(!validateEmail($('#emailfield').val()) && $('#passwordfield').val() != '')
     {
         $('.email').css('border-color','red');
         $('.password').css('border-color','green');
         $('#submit').prop('disabled', true);
     }
+    else if(!validateEmail($('#emailfield').val())   && $('#passwordfield').val() == '') 
+    {
+        $('.email').css('border-color','red');
+        $('.password').css('border-color','red');
+        $('#submit').prop('disabled', true);
+    }
+}
+
+function test()
+{
+    console.log('Testing');
 }

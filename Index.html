@@ -16,7 +16,7 @@
         <form>
             <h1>Login</h1 class="title">
             <div class="email">
-                <input type="email" id="emailfield" name="email" placeholder="E-Mail" onkeyup="inputcheck()"/>
+                <input type="email" id="emailfield" name="email" placeholder="E-Mail" onkeyup="inputcheck()" autocomplete="off"/>
                 <i class='bx bx-envelope'></i>
             </div>
             <div class="password">
@@ -24,7 +24,7 @@
                 <i class='bx bxs-ghost' onclick="showpasswod()" id="ghost"></i>
             </div>
             <div class="button">
-                <input type="submit" id="submit">
+                <input type="submit" id="submit" disabled>
             </div>
             <div class="href">
                 <a href="http://localhost/PHP/registration/registration.html">I don't have an account!</a>
