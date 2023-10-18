@@ -1,4 +1,4 @@
-function showpasswod()
+function showpassword()
 {
     var x = document.getElementById("passwordfield");
     if (x.type === "password") {
@@ -43,9 +43,4 @@ function inputcheck()
         $('.password').css('border-color','red');
         $('#submit').prop('disabled', true);
     }
-}
-
-function test()
-{
-    console.log('Testing');
 }
