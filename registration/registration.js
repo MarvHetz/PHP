@@ -1,4 +1,4 @@
-function showpassword()
+function showpassword()//animation function to switch between password and text input by clicking the ghost.
 {
     var x = document.getElementById("passwordfield");
     var y = document.getElementById("passwordfield2");
@@ -19,12 +19,14 @@ function showpassword()
     }
 }
 
-function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
+function validateEmail(email)
+{
+    var re = /\S+@\S+\.\S+/; //Regex to check if this is a valid Email
+    return re.test(email); //checking Email
 }
 
-function checkpasswords() {
+function checkpasswords() //Checking the inputs if they are valid
+{
     if ($('#passwordfield').val() == $('#passwordfield2').val() && $('#passwordfield').val() != "" ) {
         $('.passworddiv').css('border-color', 'green');
         if($('#emailfield').val() != '')

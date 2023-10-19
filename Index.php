@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="login">
-        <form>
+        <form method="post">
             <h1>Login</h1 class="title">
             <div class="email">
                 <input type="email" id="emailfield" name="email" placeholder="E-Mail" onkeyup="inputcheck()" autocomplete="off"/>
@@ -24,7 +24,7 @@
                 <i class='bx bxs-ghost' onclick="showpasswod()" id="ghost"></i>
             </div>
             <div class="button">
-                <input type="submit" id="submit" disabled value='login'>
+                <input type="submit" id="submit" name="submit" disabled value='login'>
             </div>
             <div class="href">
                 <a href="http://localhost/PHP/registration/registration.php">I don't have an account!</a>
@@ -34,5 +34,9 @@
 </body>
 </html>
 
-,,,,
-,,,,,,,,,,,,,,0
+<?php
+$pdo = new PDO('mysql:host=localhost;dbname=ticketsystem','root','');
+    if (isset($_POST['submit']))
+    {
+    }
+?>
