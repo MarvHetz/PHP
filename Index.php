@@ -20,8 +20,8 @@
                 <i class='bx bx-envelope'></i>
             </div>
             <div class="password">
-                <input type="password" id="passwordfield" placeholder="Password" id="passwordfield" onkeyup="inputcheck()"/>
-                <i class='bx bxs-ghost' onclick="showpasswod()" id="ghost"></i>
+                <input type="password" id="passwordfield" placeholder="Password" name="password" id="passwordfield" onkeyup="inputcheck()"/>
+                <i class='bx bxs-ghost' onclick="showpassword()" id="ghost"></i>
             </div>
             <div class="button">
                 <input type="submit" id="submit" name="submit" disabled value='login'>
@@ -35,8 +35,14 @@
 </html>
 
 <?php
-$pdo = new PDO('mysql:host=localhost;dbname=ticketsystem','root','');
+    include 'DBHandler.php';
+    $dbHandler = new dbHandler();
     if (isset($_POST['submit']))
     {
+        if($userid = $dbHandler.validateLogin($_POST['email'], $_POST['password']))
+        {
+            session.start();
+            $_SESSION['userid'] = $userid;
+        }
     }
 ?>
