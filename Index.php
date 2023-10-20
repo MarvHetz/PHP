@@ -43,6 +43,16 @@
         {
             session_start();
             $_SESSION['userid'] = $userid;
+            if($dbHandler->userIsAdmin($userid))
+            {
+                header('Location:AdminPanel/Adminpanel.php');
+                exit;
+            }
+            else
+            {
+                header('Location:TicketForm/TicketForm.php');
+                exit;
+            }
         }
         else
         {

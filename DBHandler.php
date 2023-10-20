@@ -22,6 +22,12 @@
 
         }
 
+        public function userIsAdmin($id)
+        {
+            $result = $this->pdo->query("Select admin from users where id='$id';");
+            return $result->fetchColumn();
+        }
+
         public function checkForEmail($email)
         {
             $result = $this->pdo->query("Select count(*) from users where email='$email';");
