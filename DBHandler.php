@@ -10,7 +10,7 @@
 
         public function validateLogin($email,$password)
         {
-            if($result = $this->pdo->query("Select ID from userers where email='$email' and password='$password'")->num_rows == 1)
+            if(count(($result = $this->pdo->query("Select ID from users where email='$email' and password='$password'"))->fetchAll()) == 1)
             {
                 $row = $result->fetch_assoc();
                 return $row["id"];
@@ -21,7 +21,7 @@
 
         public function checkForEmail($email)
         {
-            if($this->pdo->query("Select $email from userers where email='$email'")->num_rows == 1)
+            if(count($this->pdo->query("Select email from users where email='$email'")->fetchAll()) == 1)
                 return false;
             
             return true;

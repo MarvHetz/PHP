@@ -1,0 +1,29 @@
+body
+{
+    display: grid;
+    place-items: center;
+    background-image: url('../Images/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 98vh;
+}
+
+div
+{
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+    border-top: solid 1px;
+    border-left: solid 1px;
+    border-color: white ;
+    border-radius: 10px;
+    border-collapse:  separate;
+    height: 80px;
+    width: 1200px;
+    background-color: white;
+    opacity: .7;
+    position: relative;
+    display: grid;
+    place-items: center;
+}

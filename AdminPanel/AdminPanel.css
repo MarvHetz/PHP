@@ -1,0 +1,36 @@
+body
+{
+    display: grid;
+    place-items: center;
+    background-image: url('../Images/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 98vh;
+}
+
+.logout
+{
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+    border-top: solid 1px;
+    border-left: solid 1px;
+    border-color: white ;
+    background-color: white;
+    border-collapse:  separate;
+    border-radius: 10px;
+    padding: 10px;
+    opacity: .95;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+    font-size: 35px;
+}

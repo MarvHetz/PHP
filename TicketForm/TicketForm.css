@@ -2,7 +2,7 @@ body
 {
     display: grid;
     place-items: center;
-    background-image: url('Images/background.jpg');
+    background-image: url('../Images/background.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -10,7 +10,7 @@ body
     height: 98vh;
 }
 
-.login
+.Form
 {
     border-bottom: solid 1px;
     border-right: solid 1px;
@@ -19,30 +19,36 @@ body
     border-color: white ;
     border-radius: 10px;
     border-collapse:  separate;
-    height: 330px;
-    width: 360px;
+    height: 600px;
+    width: 600px;
     background-color: white;
     opacity: .7;
     position: relative;
 }
 
-form
+.logout
 {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto auto auto auto;
-    place-items: center;
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+    border-top: solid 1px;
+    border-left: solid 1px;
+    border-color: white ;
+    background-color: white;
+    border-collapse:  separate;
+    border-radius: 10px;
+    padding: 10px;
+    opacity: .95;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
 }
 
-h1
+a
 {
+    text-decoration: none;
     color: black;
-}
-
-.title
-{
-    grid-column: 1;
-    grid-row: 1;
+    font-size: 35px;
 }
 
 input
@@ -55,6 +61,7 @@ input
     width: 100%;
     grid-column: 1;
     outline: 0px solid transparent;
+    font-size: 20px;
 }
 
 input:focus
@@ -66,16 +73,38 @@ input:focus
 {
     color: black;
     opacity: 1;
+    font-size: 20px;
 }
 
-i
+textarea
 {
-    grid-column: 2;
-    font-size: 35px;
-    margin-right: 10px;
+    padding: 10px 20px;
+    background: transparent;
+    box-sizing: border-box;
+    border: none;
+    height: 100%;
+    width: 100%;
+    grid-column: 1;
+    outline: 0px solid transparent;
+    font-size: 20px;
+    resize: none;
 }
 
-.email
+form
+{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto auto;
+    place-items: center;
+}
+
+#title
+{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.shortDescription
 {
     grid-column: 1;
     grid-row: 2;
@@ -83,9 +112,11 @@ i
     border: 2px solid rgb(71, 57, 83);
     border-radius: 35px;
     display: grid;
+    width: 70%;
+    margin-top: 20px;
 }
 
-.password
+.longDescription
 {
     grid-column: 1;
     grid-row: 3;
@@ -97,26 +128,10 @@ i
 
 .button
 {
-    display: grid;
-    place-items: center;
-    margin-top: 30px;
-    border: 2px solid rgb(71,72,83);
-    border-radius: 35px;
     grid-column: 1;
     grid-row: 4;
-}
-
-.href
-{
+    margin-top: 30px;
+    border: 2px solid rgb(71, 57, 83);
+    border-radius: 35px;
     display: grid;
-    place-items: center;
-    grid-row: 5;
-    grid-column: 1;
-    margin-top: 20px;
-}
-
-input[type=password]::-ms-reveal,
-input[type=password]::-ms-clear
-{
-    display: none;
 }
