@@ -16,7 +16,6 @@
         <a class='bx bx-log-out bx-fade-left-hover'  href="TicketForm.php?logout=true"></a>
     </div>
     <div class="Tickets">
-
     </div>
 </body>
 </html>

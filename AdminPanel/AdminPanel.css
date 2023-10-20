@@ -28,6 +28,23 @@ body
 
 }
 
+.Tickets
+{
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+    border-top: solid 1px;
+    border-left: solid 1px;
+    border-color: white ;
+    border-radius: 10px;
+    border-collapse:  separate;
+    height: 800px;
+    width: 1200px;
+    background-color: white;
+    opacity: .7;
+    position: relative;
+    overflow: auto;
+}
+
 a
 {
     text-decoration: none;

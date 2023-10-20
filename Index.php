@@ -12,8 +12,8 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <div class="login">
-        <form method="post">
+    <div  class="login">
+        <form method="POST">
             <h1>Login</h1 class="title">
             <div class="email">
                 <input type="email" id="emailfield" name="email" placeholder="E-Mail" onkeyup="inputcheck()" autocomplete="off"/>
@@ -39,7 +39,7 @@
     $dbHandler = new dbHandler();
     if (isset($_POST['submit']))
     {
-        if(($userid = $dbHandler->validateLogin($_POST['email'], $_POST['password'])) != false)
+        if(($userid = $dbHandler->validateLogin($_POST['email'], $_POST['password'])))
         {
             session_start();
             $_SESSION['userid'] = $userid;

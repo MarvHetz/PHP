@@ -10,21 +10,30 @@
 
         public function validateLogin($email,$password)
         {
-            if(count(($result = $this->pdo->query("Select ID from users where email='$email' and password='$password'"))->fetchAll()) == 1)
+            $result = $this->pdo->query("Select count(*) from users where email='$email' and password='$password';");
+
+            if ($result->fetchColumn() == 1)
             {
-                $row = $result->fetch_assoc();
-                return $row["id"];
+                $result = $this->pdo->query("Select id from users where email='$email' and password='$password';");
+                return $result->fetchColumn();
             }
-            
-            return false;
+            else
+                return false;
+
         }
 
         public function checkForEmail($email)
         {
-            if(count($this->pdo->query("Select email from users where email='$email'")->fetchAll()) == 1)
+            $result = $this->pdo->query("Select count(*) from users where email='$email';");
+            if ($result->fetchColumn() == 1)
                 return false;
-            
-            return true;
+            else
+                return true;
+        }
+
+        public function getAllTickets()
+        {
+            return $this->pdo->query("Select t.id,u.email,t.shortdescriptio,t.longdescription from tickets t, users u where u.id = t.user and solved = false;");
         }
     }
 ?>
