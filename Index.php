@@ -12,7 +12,7 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <div  class="login">
+    <div class="login">
         <form method="POST">
             <h1>Login</h1 class="title">
             <div class="email">

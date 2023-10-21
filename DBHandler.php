@@ -10,11 +10,11 @@
 
         public function validateLogin($email,$password)
         {
-            $result = $this->pdo->query("Select count(*) from users where email='$email' and password='$password';");
+            $result = $this->pdo->query("Select password from users where email='$email';");
 
-            if ($result->fetchColumn() == 1)
+            if (password_verify($password,$result->fetchColumn()))
             {
-                $result = $this->pdo->query("Select id from users where email='$email' and password='$password';");
+                $result = $this->pdo->query("Select id from users where email='$email';");
                 return $result->fetchColumn();
             }
             else
@@ -35,6 +35,13 @@
                 return false;
             else
                 return true;
+        }
+
+        public function addNewUser($email, $password)
+        {
+            $insert = $this->pdo->prepare("INSERT INTO users(`ID`, `Email`, `Password`, `Admin`) VALUES (NULL,:email,:password,'false')");
+            $password = password_hash($password,PASSWORD_DEFAULT);
+            $insert->execute(['email' => $email, 'password' => $password]);
         }
 
         public function getAllTickets()

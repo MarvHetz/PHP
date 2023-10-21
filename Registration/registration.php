@@ -20,7 +20,7 @@
                 <i class='bx bx-envelope'></i>
             </div>
             <div class="passworddiv" id="password">
-                <input type="password" placeholder="Password" onkeyup="checkpasswords()" id="passwordfield"/>
+                <input type="password" placeholder="Password" name="password" onkeyup="checkpasswords()" id="passwordfield"/>
                 <i class='bx bxs-ghost' id="ghost" onclick="showpassword()"></i>
             </div>
             <div class="passworddiv" id="password2">
@@ -44,6 +44,7 @@ include '../DBHandler.php';
     {
         if($dbHandler->checkForEmail($_POST['email']))
         {
+            $dbHandler->addNewUser($_POST['email'],$_POST['password']);
             header('Location:../AdditionalPages/SucceededRegistration.html');
             exit;
         }
