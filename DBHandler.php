@@ -46,7 +46,7 @@
 
         public function getAllTickets()
         {
-            return $this->pdo->query("Select t.id,u.email,t.shortdescriptio,t.longdescription from tickets t, users u where u.id = t.user and solved = false;");
+            return $this->pdo->query("Select t.id,u.email,t.shortdescription,t.longdescription from tickets t, users u where u.id = t.user and solved = false;");
         }
 
         public function addTicket($userid, $shortdescription, $longdescription)

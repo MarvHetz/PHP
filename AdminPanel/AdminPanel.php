@@ -8,14 +8,14 @@
     <link rel="icon" type="image/x-icon" href="../Images/favico.ico">
     <link rel="stylesheet" href="AdminPanel.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="jquery.js"></script>
-    <script src="index.js"></script>
+    <script src="../jquery.js"></script>
+    <script src="AdminPanel.js"></script>
 </head>
 <body>
     <div class="logout">
         <a class='bx bx-log-out bx-fade-left-hover'  href="TicketForm.php?logout=true"></a>
     </div>
-    <div class="Tickets">
+    <div id="Tickets">
     </div>
 </body>
 </html>
