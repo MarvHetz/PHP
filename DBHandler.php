@@ -48,5 +48,11 @@
         {
             return $this->pdo->query("Select t.id,u.email,t.shortdescriptio,t.longdescription from tickets t, users u where u.id = t.user and solved = false;");
         }
+
+        public function addTicket($userid, $shortdescription, $longdescription)
+        {
+            $insert = $this->pdo->prepare("INSERT INTO `tickets`(`ID`, `User`, `Shortdescription`, `Longdescription`, `Solved`) VALUES (NULL,:userid,:shortdescription,:longdescription,'false')");
+            $insert->execute(['userid' => $userid,'shortdescription' => $shortdescription,'longdescription' => $longdescription]);
+        }
     }
 ?>

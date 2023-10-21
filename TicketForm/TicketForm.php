@@ -22,10 +22,10 @@
                 <h1>Ticket</h1 class="title">
             </div>
             <div class="shortDescription">
-                <input type="text" placeholder="Short Description"/>
+                <input type="text" name="shortdescription" placeholder="Short Description"/>
             </div>
             <div class="longDescription">
-                <textarea placeholder="Long Description" rows="10" cols="33"></textarea>
+                <textarea placeholder="Long Description" name="longdescription" rows="10" cols="33"></textarea>
             </div>
             <div class="button">
                 <input type="submit" id="submit" name="submit" value='submit Ticket'>
@@ -37,6 +37,12 @@
 
 <?php
     session_start();
+    include '../DBHandler.php';
+    $dbHandler = new dbHandler();
+    if (isset($_GET['submit']))
+    {
+        $dbHandler->addTicket($_SESSION['userid'],$_GET['shortdescription'],$_GET['longdescription']);
+    }
     if (isset($_GET['logout']))
     {
         session_destroy();
