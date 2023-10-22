@@ -54,5 +54,32 @@
             $insert = $this->pdo->prepare("INSERT INTO `tickets`(`ID`, `User`, `Shortdescription`, `Longdescription`, `Solved`) VALUES (NULL,:userid,:shortdescription,:longdescription,'false')");
             $insert->execute(['userid' => $userid,'shortdescription' => $shortdescription,'longdescription' => $longdescription]);
         }
+
+        public function markTicketAsSolved($id)
+        {
+            $update = $this->pdo->prepare("UPDATE `tickets` SET `Solved`='1' WHERE id = :id");
+            $update->execute(['id' => $id]);
+
+        }
+
+        public function getAllUsers($id)
+        {
+            return $this->pdo->query("Select id, email, admin from users where id != '$id'");
+        }
+
+        public function manageAdminPriviliges($id)
+        {
+            $result = $this->userIsAdmin($id);
+            if ($result == 1)
+            {
+                $update = $this->pdo->prepare("UPDATE `users` SET `Admin` = '0' where id = :id");
+                $update->execute(['id' => $id]);
+            }
+            else
+            {
+                $update = $this->pdo->prepare("UPDATE `users` SET `Admin` = '1' where id = :id");
+                $update->execute(['id' => $id]);
+            }
+        }
     }
 ?>

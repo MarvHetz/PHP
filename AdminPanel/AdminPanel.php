@@ -13,9 +13,26 @@
 </head>
 <body>
     <div class="logout">
-        <a class='bx bx-log-out bx-fade-left-hover'  href="TicketForm.php?logout=true"></a>
+        <a class='bx bx-log-out bx-fade-left-hover'  href="AdminPanel.php?logout=true"></a>
     </div>
     <div id="Tickets">
+        <table>
+            <th>TicketID</th>
+            <th>User</th>
+            <th>Short Description</th>
+            <th>Long Description</th>
+            <th>Mark as solved</th>
+        </table>
     </div>
 </body>
 </html>
+
+<?php
+    session_start();
+    if (isset($_GET['logout']))
+    {
+        session_destroy();
+        header('Location:../');
+        exit;
+}
+?>
