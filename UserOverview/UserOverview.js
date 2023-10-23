@@ -50,7 +50,5 @@ function deleteUser(id)
     $('.'+id).fadeOut();
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET","UserApi.php?q="+id+"&type=2",true);
-    if (this.readyState == 4 && this.status == 200) {
-    }
     xmlhttp.send();
 }

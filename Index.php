@@ -24,7 +24,7 @@
                 <i class='bx bxs-ghost' onclick="showpassword()" id="ghost"></i>
             </div>
             <div class="button">
-                <input type="submit" id="submit" name="submit" disabled value='login'>
+                <input type="submit" id="submit" name="submit" disabled value='Login'>
             </div>
             <div class="href">
                 <a href="http://localhost/PHP/registration/registration.php">I don't have an account!</a>

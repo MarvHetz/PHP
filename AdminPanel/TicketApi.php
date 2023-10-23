@@ -18,7 +18,5 @@ else
 {
     $dbHandler->markTicketAsSolved(intval($_GET['q']));
 }
-
-
 ?>
 

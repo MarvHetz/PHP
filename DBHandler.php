@@ -10,7 +10,7 @@
 
         public function validateLogin($email,$password)
         {
-            $result = $this->pdo->query("Select password from users where email='$email';");
+            $result = $this->pdo->query("Select password from users where email='$email' and userrole != '2';");
 
             if (password_verify($password,$result->fetchColumn()))
             {
@@ -24,7 +24,7 @@
 
         public function userIsAdmin($id)
         {
-            $result = $this->pdo->query("Select admin from users where id='$id';");
+            $result = $this->pdo->query("Select UserRole from users where id='$id';");
             return $result->fetchColumn();
         }
 
@@ -39,7 +39,7 @@
 
         public function addNewUser($email, $password)
         {
-            $insert = $this->pdo->prepare("INSERT INTO users(`ID`, `Email`, `Password`, `Admin`) VALUES (NULL,:email,:password,'false')");
+            $insert = $this->pdo->prepare("INSERT INTO users(`ID`, `Email`, `Password`, `UserRole`) VALUES (NULL,:email,:password,'0')");
             $password = password_hash($password,PASSWORD_DEFAULT);
             $insert->execute(['email' => $email, 'password' => $password]);
         }
@@ -64,7 +64,7 @@
 
         public function getAllUsers($id)
         {
-            return $this->pdo->query("Select id, email, admin from users where id != '$id'");
+            return $this->pdo->query("Select id, email, userrole from users where id != '1' and UserRole != '2'");
         }
 
         public function manageAdminPriviliges($id)
@@ -72,14 +72,20 @@
             $result = $this->userIsAdmin($id);
             if ($result == 1)
             {
-                $update = $this->pdo->prepare("UPDATE `users` SET `Admin` = '0' where id = :id");
+                $update = $this->pdo->prepare("UPDATE `users` SET `UserRole` = '0' where id = :id");
                 $update->execute(['id' => $id]);
             }
             else
             {
-                $update = $this->pdo->prepare("UPDATE `users` SET `Admin` = '1' where id = :id");
+                $update = $this->pdo->prepare("UPDATE `users` SET `UserRole` = '1' where id = :id");
                 $update->execute(['id' => $id]);
             }
+        }
+
+        public function deleteUser($id)
+        {
+            $delete = $this->pdo->prepare("UPDATE `users` SET `UserRole` = '2' where id = :id");
+            $delete->execute(['id' => $id]);
         }
     }
 ?>

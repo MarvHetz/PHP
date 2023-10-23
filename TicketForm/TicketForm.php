@@ -28,7 +28,7 @@
                 <textarea placeholder="Long Description" name="longdescription" rows="10" cols="33"></textarea>
             </div>
             <div class="button">
-                <input type="submit" id="submit" name="submit" value='submit Ticket'>
+                <input type="submit" id="submit" name="submit" value='Submit Ticket'>
             </div>
         </form>
     </div>

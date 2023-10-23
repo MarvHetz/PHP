@@ -12,13 +12,17 @@ if (intval($_GET['type']) == 0)
 
     foreach ($result as $row)
     {
-        array_push($user,[$row['id'],$row['email'],$row['admin']]);
+        array_push($user,[$row['id'],$row['email'],$row['userrole']]);
     }
     echo json_encode($user);
 }
 else if (intval($_GET['type']) == 1)
 {
     $dbHandler->manageAdminPriviliges(intval($_GET['q']));
+}
+else if (intval($_GET['type']) == 2)
+{
+    $dbHandler->deleteUser(intval($_GET['q']));
 }
 
 
