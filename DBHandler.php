@@ -55,6 +55,13 @@
             $insert->execute(['userid' => $userid,'shortdescription' => $shortdescription,'longdescription' => $longdescription]);
         }
 
+        public function getUserEmailByTicketId($ticketID)
+        {
+            $select = $this->pdo->query("Select u.email, t.id, t.shortdescription from users u, tickets t where u.id = t.user and t.id = '$ticketID'");
+            return $select;
+
+        }
+
         public function markTicketAsSolved($id)
         {
             $update = $this->pdo->prepare("UPDATE `tickets` SET `Solved`='1' WHERE id = :id");
