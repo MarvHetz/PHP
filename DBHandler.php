@@ -71,7 +71,7 @@
 
         public function getAllUsers($id)
         {
-            return $this->pdo->query("Select id, email, userrole from users where id != '1' and UserRole != '2'");
+            return $this->pdo->query("Select id, email, userrole from users where id != '$id' and UserRole != '2'");
         }
 
         public function manageAdminPriviliges($id)

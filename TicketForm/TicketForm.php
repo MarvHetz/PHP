@@ -8,8 +8,8 @@
     <link rel="icon" type="image/x-icon" href="../images/favico.ico">
     <link rel="stylesheet" href="TicketForm.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="jquery.js"></script>
-    <script src="index.js"></script>
+    <script src="../jquery.js"></script>
+    <script src="TicketForm.js"></script>
 </head>
 <body>
 
@@ -22,13 +22,13 @@
                 <h1>Ticket</h1 class="title">
             </div>
             <div class="shortDescription">
-                <input type="text" name="shortdescription" placeholder="Short Description"/>
+                <input type="text" id="shortdesc" name="shortdescription" placeholder="Short Description"  onkeyup="checkInput()"/>
             </div>
             <div class="longDescription">
                 <textarea placeholder="Long Description" name="longdescription" rows="10" cols="33"></textarea>
             </div>
             <div class="button">
-                <input type="submit" id="submit" name="submit" value='Submit Ticket'>
+                <input type="submit" id="submit" name="submit" value='Submit Ticket' disabled/>
             </div>
         </form>
     </div>
@@ -87,16 +87,7 @@
         ],
     ]);
 
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-
     curl_close($curl);
-
-    if ($err) {
-        echo "cURL Error #:" . $err;
-    } else {
-        echo $response;
-    }
     }
     if (isset($_GET['logout']))
     {

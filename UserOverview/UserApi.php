@@ -3,7 +3,6 @@ include '../DBHandler.php';
 
 $dbHandler = new dbHandler();
 session_start();
-$_SESSION['userid'] = 8;
 
 if (intval($_GET['type']) == 0)
 {
