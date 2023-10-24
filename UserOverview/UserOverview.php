@@ -14,6 +14,7 @@
 <body>
 <div class="logout">
     <a class='bx bx-log-out bx-fade-left-hover'  href="UserOverview.php?logout=true"></a>
+    <a class='bx bxs-notepad' href="UserOverview.php?goToAdminpanel=true"></a>
 </div>
 <div id="Users">
     <table>
@@ -27,11 +28,17 @@
 </html>
 
 <?php
-session_start();
-if (isset($_GET['logout']))
-{
-    session_destroy();
-    header('Location:../');
-    exit;
-}
+    session_start();
+    if (isset($_GET['logout']))
+    {
+        session_destroy();
+        header('Location:../');
+        exit;
+    }
+
+    if(isset($_GET['goToAdminpanel']))
+    {
+        header('Location:../AdminPanel/adminpanel.php');
+        exit;
+    }
 ?>

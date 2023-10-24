@@ -12,8 +12,9 @@
     <script src="AdminPanel.js"></script>
 </head>
 <body>
-    <div class="logout">
+    <div class="Icons">
         <a class='bx bx-log-out bx-fade-left-hover'  href="AdminPanel.php?logout=true"></a>
+        <a class='bx bxs-user-circle' href="AdminPanel.php?goToUser=true"></a>
     </div>
     <div id="Tickets">
         <table>
@@ -34,5 +35,11 @@
         session_destroy();
         header('Location:../');
         exit;
-}
+    }
+
+    if(isset($_GET['goToUser']))
+    {
+        header('Location:../UserOverview/UserOverview.php');
+        exit;
+    }
 ?>
