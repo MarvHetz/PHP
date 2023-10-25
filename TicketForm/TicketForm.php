@@ -67,28 +67,29 @@
             'from' => [
                 'email' => 'ticketsystem@firebese.com',
                 'name' => 'Ticketsystem'
-            ],
-            'subject' => 'New Ticket',
-            'content' => [
-                [
-                    'type' => 'text',
-                    'value' => 'There is a new Problem: '.$_GET['shortdescription']
+                ],
+                'subject' => 'New Ticket',
+                'content' => [
+                    [
+                        'type' => 'text',
+                        'value' => 'There is a new Problem: '.$_GET['shortdescription']
+                    ]
+                ],
+                'headers' => [
+                    'List-Unsubscribe' => '<mailto: unsubscribe@firebese.com?subject=unsubscribe>, <https://firebese.com/unsubscribe/id>'
                 ]
+            ]),
+            CURLOPT_HTTPHEADER => [
+                "Content-Type: application/json",
+                "X-RapidAPI-Host: send-mail-serverless.p.rapidapi.com",
+                "X-RapidAPI-Key: d022f59bbcmshbdb2050bb644e38p1a472bjsn516f5d6c4f06",
+                "content-type: application/json"
             ],
-            'headers' => [
-                'List-Unsubscribe' => '<mailto: unsubscribe@firebese.com?subject=unsubscribe>, <https://firebese.com/unsubscribe/id>'
-            ]
-        ]),
-        CURLOPT_HTTPHEADER => [
-            "Content-Type: application/json",
-            "X-RapidAPI-Host: send-mail-serverless.p.rapidapi.com",
-            "X-RapidAPI-Key: d022f59bbcmshbdb2050bb644e38p1a472bjsn516f5d6c4f06",
-            "content-type: application/json"
-        ],
-    ]);
+        ]); 
 
-    curl_close($curl);
+        curl_close($curl);
     }
+
     if (isset($_GET['logout']))
     {
         session_destroy();
